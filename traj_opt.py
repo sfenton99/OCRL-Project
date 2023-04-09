@@ -2,28 +2,35 @@
 import pyomo.environ as pyo
 from pyomo.opt import SolverFactory
 
-model = pyo.ConcreteModel()
 
-def dynamics(params, x, u):
+def dynamics(params: dict, x, u):
     return xdot
 
-def hermite_simpson(params, x1, x2, u, dt):
+
+def hermite_simpson(params: dict, x1, x2, u, dt):
     return xnext
 
-def cost(params,Z):
+
+def cost(params: dict, model: pyo.ConcreteModel):
     return J
 
-def dynamics_constraints(params, Z):
-    return c
 
-def equality_constraints(params, Z):
-    return c
+def dynamics_constraints(params: dict, model: pyo.ConcreteModel) -> pyo.Constraint:
+    return dyn_c
 
-def inequality_constraints(params, Z):
-    return c
 
-def create_idx(nx,nu,N):
-    return (nx=nx,nu=nu,N=N,nz=nz,nc=nc,x= x,u = u,c = c)
+def equality_constraints(params: dict, model: pyo.ConcreteModel) -> dict:
+
+    return eq_c
+
+
+def inequality_constraints(params: dict, model: pyo.ConcreteModel) -> dict:
+    return ineq_c
+
+
+def create_idx(nx, nu, N):
+    return (nx=nx, nu=nu, N=N, nz=nz, nc=nc, x=x, u=u, c=c)
+
 
 def traj_opt():
     nx =
@@ -34,13 +41,13 @@ def traj_opt():
     N = length(t_vec)
     idx = create_idx(nx, nu, N)
 
-
+    model = pyo.ConcreteModel()
 
     return x, u, t_vec, params
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    print("poop")
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
