@@ -4,6 +4,5 @@
 Architecture Adapted from Examples Provided in:<br>
 *16-645: Optimal Control and Reinforcement Learning*
 - fmincon.jl taken directly from HW3 
-- traj-opt architecture adapted from HW3 for our use case
+- traj-opt architecture adapted from HW3 for our use case (original author: Author: Kevin Tracy (https://github.com/kevin-tracy))
 
-Author: Kevin Tracy (https://github.com/kevin-tracy) 
